@@ -4,7 +4,9 @@ on:
   schedule:
     # Thu 00:00 Malaysia (UTC+8) = Wed 16:00 UTC
     - cron: '0 16 * * 3'
-  workflow_dispatch: # manual "Run workflow" button in GitHub
+    # Thu 00:05 Malaysia — backup if data.gov.my updates shortly after midnight
+    - cron: '5 16 * * 3'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -26,7 +28,11 @@ jobs:
         with:
           commit-message: 'Update weekly pump prices'
           title: 'Update weekly pump prices'
-          body: 'Automated update from data.gov.my fuelprice API.'
+          body: |
+            Automated update from [data.gov.my fuelprice](https://data.gov.my/data-catalogue/fuelprice).
+
+            App raw URL after merge:
+            https://raw.githubusercontent.com/fengshun97/Petrol-Calculator-Prices/refs/heads/main/prices.json
           branch: auto/update-prices
           delete-branch: true
 
