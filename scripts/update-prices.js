@@ -42,9 +42,9 @@ function fetchJson(url, redirects = 0) {
 }
 
 function addDays(isoDate, days) {
-  const d = new Date(`${isoDate}T00:00:00+08:00`);
-  d.setDate(d.getDate() + days);
-  return d.toISOString().slice(0, 10);
+  const [y, m, d] = isoDate.split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d + days));
+  return dt.toISOString().slice(0, 10);
 }
 
 function round2(n) {

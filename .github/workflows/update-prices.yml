@@ -4,8 +4,8 @@ on:
   schedule:
     # Thu 00:00 Malaysia (UTC+8) = Wed 16:00 UTC
     - cron: '0 16 * * 3'
-    # Thu 00:05 Malaysia — backup if data.gov.my updates shortly after midnight
-    - cron: '5 16 * * 3'
+    # Thu 00:15 Malaysia — backup if data.gov.my updates shortly after midnight
+    - cron: '15 16 * * 3'
   workflow_dispatch:
 
 permissions:
