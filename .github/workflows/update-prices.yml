@@ -1,0 +1,38 @@
+name: Update weekly pump prices
+
+on:
+  schedule:
+    # Thu 00:00 Malaysia (UTC+8) = Wed 16:00 UTC
+    - cron: '0 16 * * 3'
+  workflow_dispatch: # manual "Run workflow" button in GitHub
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate prices.json
+        run: node scripts/update-prices.js
+
+      - name: Create pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'Update weekly pump prices'
+          title: 'Update weekly pump prices'
+          body: 'Automated update from data.gov.my fuelprice API.'
+          branch: auto/update-prices
+          delete-branch: true
+
+      - name: Merge pull request
+        if: steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --merge --delete-branch
