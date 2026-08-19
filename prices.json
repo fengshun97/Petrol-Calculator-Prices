@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-08-13",
-  "validUntil": "2026-08-19",
+  "validUntil": "2026-08-18",
   "source": "MoF weekly APM retail prices (Peninsular Malaysia) — https://www.mof.gov.my/portal/ms/berita/siaran-media/harga-minyak",
   "note": "These are unsubsidised pump / market prices (RM per litre), not subsidy rates. Subsidy rates stay in the app as FUEL_PRICE_RATES.",
   "market": {
