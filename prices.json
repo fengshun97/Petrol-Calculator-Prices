@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-10-01",
-  "validUntil": "2026-10-07",
+  "updatedAt": "2026-10-08",
+  "validUntil": "2026-10-14",
   "source": "MoF weekly APM retail prices (Peninsular Malaysia) — https://www.mof.gov.my/portal/ms/berita/siaran-media/harga-minyak",
   "note": "These are unsubsidised pump / market prices (RM per litre), not subsidy rates. Subsidy rates stay in the app as FUEL_PRICE_RATES.",
   "market": {
-    "RON95": 4.52,
+    "RON95": 4.67,
     "Diesel": 5.27,
-    "RON97": 5
+    "RON97": 5.15
   },
   "prices": {
     "Subsidy Diesel Cash Card": 5.27,
     "BUDI Diesel": 5.27,
-    "Subsidy Petrol Cash Card": 4.52,
-    "Budi 95": 4.52,
+    "Subsidy Petrol Cash Card": 4.67,
+    "Budi 95": 4.67,
     "E-nelayan": 5.27,
     "Taxi / Bus": 5.27
   }
